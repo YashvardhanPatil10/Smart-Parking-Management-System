@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #e5eefc;
+  background: radial-gradient(circle at 20% 20%, #2d62ff 0%, transparent 40%),
+    radial-gradient(circle at 80% 0%, #7d3cff 0%, transparent 35%),
+    radial-gradient(circle at 50% 100%, #00a6ff 0%, transparent 35%),
+    #090d1f;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 0 16px 32px;
+}
+
+h1 {
+  margin-bottom: 8px;
+  text-align: center;
+  color: #f8fbff;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 0;
+  color: #c9d9ff;
+}
+
+.card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.24),
+    rgba(255, 255, 255, 0.08)
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 12px 28px rgba(8, 20, 60, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: 600;
+  color: #d8e6ff;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.2);
+  color: #f8fbff;
+}
+
+input::placeholder {
+  color: #d7e2ff;
+}
+
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.2);
+  color: #f8fbff;
+}
+
+select option {
+  color: #111827;
+}
+
+button {
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #66a9ff, #4477ff);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(45, 97, 255, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #76b3ff, #5b89ff);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(45, 97, 255, 0.45);
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, #6f86b3, #4f5f85);
+  box-shadow: 0 8px 18px rgba(32, 42, 74, 0.35);
+}
+
+.secondary-btn:hover {
+  background: linear-gradient(135deg, #8198c4, #607097);
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e2eeff;
+}
+
+.slot-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.slot-box {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 18px 10px;
+  text-align: left;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.slot-box.available {
+  background: linear-gradient(
+    140deg,
+    rgba(74, 222, 128, 0.35),
+    rgba(22, 163, 74, 0.22)
+  );
+  color: #dcfce7;
+}
+
+.slot-box.occupied {
+  background: linear-gradient(
+    140deg,
+    rgba(248, 113, 113, 0.32),
+    rgba(220, 38, 38, 0.2)
+  );
+  color: #ffe4e6;
+}
+
+.slot-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.slot-meta {
+  font-size: 0.7rem;
+  line-height: 1.25;
+}
+
+.slot-small-btn {
+  margin-top: 8px;
+  padding: 5px 8px;
+  font-size: 0.7rem;
+  background: linear-gradient(135deg, #f87171, #dc2626);
+  box-shadow: none;
+}
+
+.slot-small-btn:hover {
+  background: linear-gradient(135deg, #fb8484, #ef4444);
+}
+
+.compact-form {
+  margin-top: 10px;
+}
+
+.reports-section {
+  margin-top: 14px;
+}
+
+.report-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  align-items: end;
+}
+
+.report-table-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.22);
+  color: #f8fbff;
+}
+
+td {
+  color: #ebf2ff;
+}
+
+@media (max-width: 600px) {
+  .slot-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+}

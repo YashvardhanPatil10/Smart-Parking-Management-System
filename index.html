@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Parking Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Smart Parking Management</h1>
+      <p class="subtitle">Admin setup and parking dashboard view</p>
+
+      <section class="card" id="loginSection">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="Enter username" required />
+
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter password"
+            required
+          />
+
+          <button type="submit">Login</button>
+          <p id="loginMessage" class="message"></p>
+        </form>
+      </section>
+
+      <section class="card hidden" id="adminPanel">
+        <h2>Admin Panel</h2>
+        <form id="slotConfigForm">
+          <label for="totalSlots">Assign Total Parking Slots</label>
+          <input
+            id="totalSlots"
+            type="number"
+            min="1"
+            max="500"
+            placeholder="Enter number of slots"
+            required
+          />
+          <button type="submit">Save Slot Count</button>
+          <p id="adminMessage" class="message"></p>
+        </form>
+        <form id="paymentConfigForm" class="compact-form">
+          <h3>Payment Charges</h3>
+          <p class="message">Set per-minute and minimum charge by vehicle type.</p>
+          <label for="carPerMinuteCharge">Car - Charge Per Minute</label>
+          <input id="carPerMinuteCharge" type="number" min="0" step="0.01" required />
+          <label for="carMinimumEntryCharge">Car - Minimum Entry Charge</label>
+          <input
+            id="carMinimumEntryCharge"
+            type="number"
+            min="0"
+            step="0.01"
+            required
+          />
+
+          <label for="bikePerMinuteCharge">Bike - Charge Per Minute</label>
+          <input id="bikePerMinuteCharge" type="number" min="0" step="0.01" required />
+          <label for="bikeMinimumEntryCharge">Bike - Minimum Entry Charge</label>
+          <input
+            id="bikeMinimumEntryCharge"
+            type="number"
+            min="0"
+            step="0.01"
+            required
+          />
+
+          <label for="suvPerMinuteCharge">SUV - Charge Per Minute</label>
+          <input id="suvPerMinuteCharge" type="number" min="0" step="0.01" required />
+          <label for="suvMinimumEntryCharge">SUV - Minimum Entry Charge</label>
+          <input
+            id="suvMinimumEntryCharge"
+            type="number"
+            min="0"
+            step="0.01"
+            required
+          />
+
+          <label for="truckPerMinuteCharge">Truck - Charge Per Minute</label>
+          <input id="truckPerMinuteCharge" type="number" min="0" step="0.01" required />
+          <label for="truckMinimumEntryCharge">Truck - Minimum Entry Charge</label>
+          <input
+            id="truckMinimumEntryCharge"
+            type="number"
+            min="0"
+            step="0.01"
+            required
+          />
+          <button type="submit">Save Payment Charges</button>
+          <p id="paymentMessage" class="message"></p>
+        </form>
+        <button type="button" id="reportsBtn">View Reports</button>
+        <div id="reportsSection" class="hidden reports-section">
+          <h3>Parking Reports</h3>
+          <div class="report-filters">
+            <div>
+              <label for="reportFromDate">From Date</label>
+              <input id="reportFromDate" type="date" />
+            </div>
+            <div>
+              <label for="reportToDate">To Date</label>
+              <input id="reportToDate" type="date" />
+            </div>
+            <button type="button" id="applyReportFilterBtn">Apply Filter</button>
+          </div>
+          <p id="reportsMessage" class="message"></p>
+          <p id="reportsTotalAmount" class="message"></p>
+          <div class="report-table-wrap">
+            <table id="reportsTable">
+              <thead>
+                <tr>
+                  <th>Slot</th>
+                  <th>Vehicle No</th>
+                  <th>Type</th>
+                  <th>Priority</th>
+                  <th>Entry Time</th>
+                  <th>Exit Time</th>
+                  <th>Minutes</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="reportsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <button type="button" id="adminLogoutBtn" class="secondary-btn">
+          Logout
+        </button>
+      </section>
+
+      <section class="card hidden" id="dashboardPanel">
+        <h2>Dashboard</h2>
+        <p id="dashboardMessage" class="message"></p>
+        <button type="button" id="dataInputBtn">Data Input</button>
+        <form id="vehicleEntryForm" class="hidden compact-form">
+          <label for="vehicleNumber">Vehicle Number</label>
+          <input
+            id="vehicleNumber"
+            type="text"
+            placeholder="MH12AB1234"
+            required
+          />
+
+          <label for="vehicleType">Vehicle Type</label>
+          <select id="vehicleType" required>
+            <option value="">Select type</option>
+            <option value="Car">Car</option>
+            <option value="Bike">Bike</option>
+            <option value="SUV">SUV</option>
+            <option value="Truck">Truck</option>
+          </select>
+
+          <label for="vehiclePriority">Priority</label>
+          <select id="vehiclePriority" required>
+            <option value="">Select priority</option>
+            <option value="VIP">VIP</option>
+            <option value="Reserved">Reserved</option>
+            <option value="Normal">Normal</option>
+          </select>
+
+          <button type="submit">Submit Entry</button>
+        </form>
+        <p id="entryMessage" class="message"></p>
+        <div id="slotPanel">
+          <h3>Parking Slots</h3>
+          <div id="slotGrid" class="slot-grid"></div>
+        </div>
+        <button type="button" id="dashboardLogoutBtn" class="secondary-btn">
+          Logout
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
